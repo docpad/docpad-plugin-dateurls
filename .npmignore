@@ -1,3 +1,5 @@
 Cakefile
 src/
 test/
+out/*.test.*
+out/*.tester.*

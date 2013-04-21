@@ -1,52 +1,45 @@
 {
-    "name": "docpad-plugin-dateurls",
-    "version": "2.0.0",
-    "description": "DocPad plugin which adds the ability to use the date within posts to add url routes /YEAR/MONTH/DAY.",
-    "homepage": "https://github.com/mgroves84/docpad-plugin-dateurls" ,
-    "keywords": [
-        "docpad",
-        "docpad-plugin",
-        "date",
-        "urls"
-    ],
-    "author": {
-        "name": "Mark Groves",
-        "email": "mgroves@outlook.com",
-        "url": "http://markgroves.us"
-        },
-    "maintainers": [
-        {
-        "name": "Mark Groves",
-        "email": "mgroves@outlook.com",
-        "url": "http://markgroves.us"
-        }
-    ],
-    "contributors": [
-        {
-        "name": "Mark Groves",
-        "email": "mgroves@outlook.com",
-        "url": "http://markgroves.us"
-        }
-    ],
-    "bugs": {
-        "url": "https://github.com/mgroves84/docpad-plugin-dateurls/issues"
-    },
-    "repository" : {
-        "type": "git",
-        "url": "https://github.com/mgroves84/docpad-plugin-dateurls.git"
-    },
-    "engines" : {
-        "node": ">=0.6.0",
-        "docpad": "6.x"
-    },
-    "dependencies": {
-        "moment": "2.x.x"
-    },
-    "devDependencies": {
-        "coffee-script": "~1.4.0"
-    },
-    "scripts": {
-        "test": "node ./out/dateurls.test.js"
-    },
-    "main": "./out/dateurls.plugin.js"
+  "name": "docpad-plugin-dateurls",
+  "version": "2.0.1",
+  "description": "DocPad plugin which adds the ability to use the date within posts to add url routes /YEAR/MONTH/DAY.",
+  "homepage": "https://github.com/mgroves84/docpad-plugin-dateurls",
+  "keywords": [
+    "docpad",
+    "docpad-plugin",
+    "date",
+    "urls"
+  ],
+  "author": "Mark Groves <mgroves@outlook.com> (http://markgroves.us)",
+  "maintainers": [
+    "Mark Groves <mgroves@outlook.com> (http://markgroves.us)"
+  ],
+  "contributors": [
+    "Mark Groves <mgroves@outlook.com> (http://markgroves.us)"
+  ],
+  "bugs": {
+    "url": "https://github.com/mgroves84/docpad-plugin-dateurls/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgroves84/docpad-plugin-dateurls.git"
+  },
+  "engines": {
+    "node": ">=0.6.0",
+    "docpad": "6.x"
+  },
+  "dependencies": {
+    "moment": "2.x.x"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.4.0"
+  },
+  "scripts": {
+    "test": "node ./out/dateurls.test.js"
+  },
+  "main": "./out/dateurls.plugin.js",
+  "readmeFilename": "readme.md",
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT"
 }
