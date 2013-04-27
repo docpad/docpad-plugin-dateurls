@@ -7,3 +7,5 @@ module.exports = (testers) ->
 			logLevel: 5
 			enabledPlugins:
 				'dateurls': true
+				'eco': true
+				'marked': true

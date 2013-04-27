@@ -24,6 +24,15 @@ results:
 http://yoursite.com/2012/10/21/my-blog-post.html
 ```
 
+### Document Paths
+By default dateurls will pickup documents within /documents/posts if you would like to process a different folder under documents add:
+
+``` coffee
+  plugins:
+    dateurls:
+      documentPath: 'yourpath'
+```
+
 I don't believe this will currently do anything for static environments.
 
 ## License

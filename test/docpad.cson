@@ -1,0 +1,5 @@
+{
+  plugins:
+    dateurls:
+      enabled: true
+}

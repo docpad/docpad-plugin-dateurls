@@ -8,12 +8,18 @@ module.exports = (BasePlugin) ->
 
 		name: 'dateurls'
 
+		config: 
+						enabled: true
+						documentPath: 'posts'
+
 		renderBefore: (opts, next) ->
 			{collection, templateData} = opts
 			config = @config
-			documents = @docpad.getCollection('documents').findAllLive({relativeDirPath: 'posts'}, [date: -1])
-			documents.forEach (document) ->
-				dateUrl = moment.utc(document.getMeta('date')).format('/YYYY/MM/DD')+"/"+document.get('basename').replace(post_date_regex,'')
-				document.setUrl(dateUrl)
+
+			if config.enabled 
+				documents = @docpad.getCollection('documents').findAllLive({relativeDirPath: config.documentPath}, [date: -1])
+				documents.forEach (document) ->
+					dateUrl = moment.utc(document.getMeta('date')).format('/YYYY/MM/DD')+"/"+document.get('basename').replace(post_date_regex,'')
+					document.setUrl(dateUrl)
 
 			return next()
