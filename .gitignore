@@ -1,4 +1,6 @@
-test/out/
-test/node_modules/
+test/cleanurls/out/
+test/cleanurls/node_modules/
+test/fileextension/out/
+test/fileextension/node_modules/
 node_modules/
 out/

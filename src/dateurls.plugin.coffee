@@ -11,15 +11,22 @@ module.exports = (BasePlugin) ->
 		config: 
 						enabled: true
 						documentPath: 'posts'
+						cleanurl: false
 
 		renderBefore: (opts, next) ->
 			{collection, templateData} = opts
 			config = @config
 
+
+
 			if config.enabled 
+				if config.cleanurl
+					getFilename = 'basename'
+				else
+					getFilename = 'outFilename'
 				documents = @docpad.getCollection('documents').findAllLive({relativeDirPath: config.documentPath}, [date: -1])
 				documents.forEach (document) ->
-					dateUrl = moment.utc(document.getMeta('date')).format('/YYYY/MM/DD')+"/"+document.get('basename').replace(post_date_regex,'')
+					dateUrl = moment.utc(document.getMeta('date')).format('/YYYY/MM/DD')+"/"+document.get(getFilename).replace(post_date_regex,'')
 					document.setUrl(dateUrl)
 
 			return next()

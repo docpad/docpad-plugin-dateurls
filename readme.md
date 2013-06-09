@@ -33,6 +33,25 @@ By default dateurls will pickup documents within /documents/posts if you would l
       documentPath: 'yourpath'
 ```
 
+### Clean Urls 
+By default the files paths will have the file extension:
+```
+http://yoursite.com/2012/10/21/my-blog-post.html
+```
+
+If you would like to have clean urls such as:
+```
+http://yoursite.com/2012/10/21/my-blog-post
+```
+Pass true to the cleanurl configuration property
+
+``` coffee
+  plugins:
+    dateurls:
+      cleanurls: true
+```
+
+
 I don't believe this will currently do anything for static environments.
 
 ## License
