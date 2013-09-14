@@ -48,11 +48,23 @@ Pass true to the cleanurl configuration property
 ``` coffee
   plugins:
     dateurls:
-      cleanurls: true
+      cleanurl: true
 ```
 
 
-I don't believe this will currently do anything for static environments.
+### Trailing Slashes
+When using clean urls a route will be added with the forms
+```
+http://yoursite.com/2012/10/21/my-blog-post
+http://yoursite.com/2012/10/21/my-blog-post/
+```
+
+If you wish to have links to the post use a trailing slash pass true to the trailingSlashes configuration property
+``` coffee
+  plugins:
+    dateurls:
+      trailingSlashes: true
+```
 
 ## License
 See license.md file

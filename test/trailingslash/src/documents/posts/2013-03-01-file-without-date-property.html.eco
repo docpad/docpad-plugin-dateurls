@@ -1,0 +1,4 @@
+---
+title: File without date property
+---
+<%- @document.url %>

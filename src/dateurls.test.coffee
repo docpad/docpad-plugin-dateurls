@@ -14,8 +14,20 @@ require('docpad').require('testers')
       testerName: 'dateurls cleanurls'
       pluginPath: __dirname+'/..'
       testPath: __dirname+'/../test/cleanurls'
+      autoExit: 'safe'
     ,
       plugins:
         dateurls:
           cleanurl: true
+  )
+
+  .test(
+      testerName: 'dateurls with trailing slashs'
+      pluginPath: __dirname+'/..'
+      testPath: __dirname+'/../test/trailingslash'
+    ,
+      plugins:
+        dateurls:
+          cleanurl: true
+          trailingSlashes: true
   )
