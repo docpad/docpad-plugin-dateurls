@@ -19,8 +19,6 @@ module.exports = (BasePlugin) ->
       {collection, templateData} = opts
       config = @config
 
-
-      console.log('hello: ' + config.cleanurl)
       if config.enabled 
         if config.cleanurl
           getFilename = 'basename'
