@@ -1,5 +1,8 @@
 ## History
 
+- v2.3.0 September 14, 2013
+  - Merged pull request from [soofaloofa (Kevin Sookocheff)](https://github.com/soofaloofa) to add support for trailing slashes!
+
 - v2.2.0 June 9, 2013
   - Added option to show file extensions or clean urls
   - Plugin now defaults to showing the file extension
