@@ -1,0 +1,5 @@
+---
+title: hello
+date: 2013-09-14
+---
+<%- @document.url+"/" %>
