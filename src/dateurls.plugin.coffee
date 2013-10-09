@@ -13,7 +13,21 @@ module.exports = (BasePlugin) ->
             documentPath: 'posts'
             cleanurl: false
             trailingSlashes: false
+            collectionName: null
 
+    extendCollections: (opts) ->
+      config = @config
+      if config.collectionName?
+        # Chain
+        return @
+
+      # only create our own collection if there wasn't an existing collection specified in the config
+      docpad = @docpad
+      config.collectionName = '_dateurlsPosts'
+      docpad.setCollection config.collectionName, docpad.getCollection('documents').findAllLive({relativeDirPath: config.documentPath})
+
+      # Chain
+      return @
 
     renderBefore: (opts, next) ->
       {collection, templateData} = opts
@@ -25,7 +39,7 @@ module.exports = (BasePlugin) ->
           trailingSlashes = @config.trailingSlashes
         else
           getFilename = 'outFilename'
-        documents = @docpad.getCollection('documents').findAllLive({relativeDirPath: config.documentPath}, [date: -1])
+        documents = @docpad.getCollection(config.collectionName)
         documents.forEach (document) ->
           dateUrl = moment.utc(document.getMeta('date')).format('/YYYY/MM/DD')+"/"+document.get(getFilename).replace(post_date_regex,'')
           if config.cleanurl
