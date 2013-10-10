@@ -17,11 +17,15 @@ module.exports = (BasePlugin) ->
 
     extendCollections: (opts) ->
       config = @config
+
+      # if the name of a pre-existing collection is passed in, skip the rest
+      # of this function since we don't need to create out own collection
       if config.collectionName?
         # Chain
         return @
 
-      # only create our own collection if there wasn't an existing collection specified in the config
+      # since no pre-existing collection was specified, create one based on
+      # the configured documentPath
       docpad = @docpad
       config.collectionName = '_dateurlsPosts'
       docpad.setCollection config.collectionName, docpad.getCollection('documents').findAllLive({relativeDirPath: config.documentPath})
