@@ -66,5 +66,14 @@ If you wish to have links to the post use a trailing slash pass true to the trai
       trailingSlashes: true
 ```
 
+### Collection Name
+If you would like dateurls to process documents in a collection you defined yourself (instead of documents in a specific document path), you can tell the plugin which collection to use explicitly:
+
+``` coffee
+  plugins:
+    dateurls:
+      collectionName: 'myCollection'
+```
+
 ## License
 See license.md file
