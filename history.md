@@ -1,5 +1,8 @@
 ## History
 
+- v2.3.1 October 12, 2013
+  - Merged pull request [ervwalter (Erv Walter)](https://github.com/ervwalter) to fix [Incorrect usage of findAllLive](https://github.com/mgroves84/docpad-plugin-dateurls/issues/4) Thanks!
+
 - v2.3.0 September 14, 2013
   - Merged pull request from [soofaloofa (Kevin Sookocheff)](https://github.com/soofaloofa) to add support for trailing slashes!
 
