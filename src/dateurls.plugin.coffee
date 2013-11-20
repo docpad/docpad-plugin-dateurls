@@ -52,4 +52,4 @@ module.exports = (BasePlugin) ->
           else
               document.setUrl(dateUrl)
 
-          return next()
+      return next()
