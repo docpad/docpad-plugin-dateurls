@@ -31,3 +31,15 @@ require('docpad').require('testers')
           cleanurl: true
           trailingSlashes: true
   )
+  
+  .test(
+      testerName: 'dateurls with custom format'
+      pluginPath: __dirname+'/..'
+      testPath: __dirname+'/../test/customformat'
+    ,
+      plugins:
+        dateurls:
+          cleanurl: true
+          trailingSlashes: true
+          dateFormat: '/YYYY/MM'
+  )

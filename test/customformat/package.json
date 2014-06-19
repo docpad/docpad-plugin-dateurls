@@ -1,0 +1,9 @@
+{
+	"name": "docpad-plugin-dateurls-testsuite",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies":{
+		"docpad-plugin-marked": "~2.1.1",
+		"docpad-plugin-eco": "2.x"
+	}
+}
