@@ -33,7 +33,7 @@ By default dateurls will pickup documents within /documents/posts if you would l
       documentPath: 'yourpath'
 ```
 
-### Clean Urls 
+### Clean Urls
 By default the files paths will have the file extension:
 ```
 http://yoursite.com/2012/10/21/my-blog-post.html
@@ -73,6 +73,15 @@ If you would like dateurls to process documents in a collection you defined your
   plugins:
     dateurls:
       collectionName: 'myCollection'
+```
+
+### Date Format
+If you wish to format the date portion of the generated URL differently, you can tell the plugin which date format to use with moment explicitly:
+
+``` coffee
+  plugins:
+    dateurls:
+      dateFormat: '/YYYY/MM'
 ```
 
 ## License
