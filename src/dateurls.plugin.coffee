@@ -14,6 +14,7 @@ module.exports = (BasePlugin) ->
             cleanurl: false
             trailingSlashes: false
             collectionName: null
+            dateFormat: '/YYYY/MM/DD'
 
     extendCollections: (opts) ->
       config = @config
@@ -45,7 +46,7 @@ module.exports = (BasePlugin) ->
           getFilename = 'outFilename'
         documents = @docpad.getCollection(config.collectionName)
         documents.forEach (document) ->
-          dateUrl = moment.utc(document.getMeta('date')).format('/YYYY/MM/DD')+"/"+document.get(getFilename).replace(post_date_regex,'')
+          dateUrl = moment.utc(document.getMeta('date')).format(config.dateFormat)+"/"+document.get(getFilename).replace(post_date_regex,'')
           if config.cleanurl
               document.setUrl(dateUrl + if trailingSlashes then '/' else '')
               document.addUrl(dateUrl + if trailingSlashes then '' else '/')
