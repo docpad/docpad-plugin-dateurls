@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-dateurls",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "DocPad plugin which adds the ability to use the date within posts to add url routes /YEAR/MONTH/DAY.",
   "homepage": "https://github.com/mgroves84/docpad-plugin-dateurls",
   "keywords": [

@@ -1,5 +1,8 @@
 ## History
 
+- v2.4.0 June 22, 2014
+  - Merged pull request [tvjames (Thomas James)](https://github.com/tvjames) to add the ability to supply a custom date format in the URL. Thanks!
+
 - v2.3.1 October 12, 2013
   - Merged pull request [ervwalter (Erv Walter)](https://github.com/ervwalter) to fix [Incorrect usage of findAllLive](https://github.com/mgroves84/docpad-plugin-dateurls/issues/4) Thanks!
 
