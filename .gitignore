@@ -4,3 +4,4 @@ test/fileextension/out/
 test/fileextension/node_modules/
 node_modules/
 out/
+.idea
