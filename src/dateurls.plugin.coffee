@@ -1,5 +1,6 @@
 post_date_regex = new RegExp("([0-9]+-)*")
 moment = require('moment')
+pathUtil = require('path')
 
 # Export Plugin 
 module.exports = (BasePlugin) ->
@@ -46,7 +47,7 @@ module.exports = (BasePlugin) ->
           getFilename = 'outFilename'
         documents = @docpad.getCollection(config.collectionName)
         documents.forEach (document) ->
-          dateUrl = moment.utc(document.getMeta('date')).format(config.dateFormat)+"/"+document.get(getFilename).replace(post_date_regex,'')
+          dateUrl = pathUtil.normalize(moment.utc(document.getMeta('date')).format(config.dateFormat)+"/"+document.get(getFilename).replace(post_date_regex,''))
           if config.cleanurl
               document.setUrl(dateUrl + if trailingSlashes then '/' else '')
               document.addUrl(dateUrl + if trailingSlashes then '' else '/')
