@@ -46,11 +46,16 @@ module.exports = (BasePlugin) ->
           getFilename = 'outFilename'
         documents = @docpad.getCollection(config.collectionName)
         documents.forEach (document) ->
-          dateUrl = moment.utc(document.getMeta('date')).format(config.dateFormat)+"/"+document.get(getFilename).replace(post_date_regex,'')
-          if config.cleanurl
+          overrideUrl = document.getMeta('dateurls-override')
+          if overrideUrl && typeof overrideUrl is 'string'
+            document.setUrl(overrideUrl)
+          else if not document.getMeta('dateurls-exclude')
+            filename = document.get(getFilename)            
+            dateUrl = moment.utc(document.getMeta('date')).format(config.dateFormat)+"/"+filename.replace(post_date_regex,'')
+            if config.cleanurl
               document.setUrl(dateUrl + if trailingSlashes then '/' else '')
               document.addUrl(dateUrl + if trailingSlashes then '' else '/')
-          else
-              document.setUrl(dateUrl)
+            else
+                document.setUrl(dateUrl)
 
       return next()
