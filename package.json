@@ -1,14 +1,48 @@
 {
   "name": "docpad-plugin-dateurls",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "DocPad plugin which adds the ability to use the date within posts to add url routes /YEAR/MONTH/DAY.",
-  "homepage": "https://github.com/mgroves84/docpad-plugin-dateurls",
+  "homepage": "https://github.com/docpad/docpad-plugin-dateurls",
+  "license": "MIT",
   "keywords": [
+    "date",
     "docpad",
     "docpad-plugin",
-    "date",
+    "esnext",
+    "node",
     "urls"
   ],
+  "badges": {
+    "list": [
+      "travisci",
+      "npmversion",
+      "npmdownloads",
+      "daviddm",
+      "daviddmdev",
+      "---",
+      "githubsponsors",
+      "patreon",
+      "flattr",
+      "liberapay",
+      "buymeacoffee",
+      "opencollective",
+      "crypto",
+      "paypal",
+      "wishlist"
+    ],
+    "config": {
+      "githubSponsorsUsername": "balupton",
+      "buymeacoffeeUsername": "balupton",
+      "cryptoURL": "https://bevry.me/crypto",
+      "flattrUsername": "balupton",
+      "liberapayUsername": "bevry",
+      "opencollectiveUsername": "bevry",
+      "patreonUsername": "bevry",
+      "paypalURL": "https://bevry.me/paypal",
+      "wishlistURL": "https://bevry.me/wishlist"
+    }
+  },
+  "funding": "https://bevry.me/fund",
   "author": "Mark Groves <mgroves@outlook.com> (http://markgroves.us)",
   "maintainers": [
     "Mark Groves <mgroves@outlook.com> (http://markgroves.us)"
@@ -17,29 +51,151 @@
     "Mark Groves <mgroves@outlook.com> (http://markgroves.us)"
   ],
   "bugs": {
-    "url": "https://github.com/mgroves84/docpad-plugin-dateurls/issues"
+    "url": "https://github.com/docpad/docpad-plugin-dateurls/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mgroves84/docpad-plugin-dateurls.git"
+    "url": "https://github.com/docpad/docpad-plugin-dateurls.git"
   },
   "engines": {
-    "node": ">=0.6.0",
+    "node": ">=10",
     "docpad": "6.x"
   },
+  "editions": [
+    {
+      "description": "ESNext source code for Node.js with Require for modules",
+      "directory": "source",
+      "entry": "index.js",
+      "tags": [
+        "javascript",
+        "esnext",
+        "require"
+      ],
+      "engines": {
+        "node": true
+      }
+    },
+    {
+      "description": "ESNext compiled for Node.js 14 with Require for modules",
+      "directory": "edition-node-14",
+      "entry": "index.js",
+      "tags": [
+        "javascript",
+        "require"
+      ],
+      "engines": {
+        "node": true,
+        "browsers": false
+      }
+    },
+    {
+      "description": "ESNext compiled for Node.js 10 with Require for modules",
+      "directory": "edition-node-10",
+      "entry": "index.js",
+      "tags": [
+        "javascript",
+        "require"
+      ],
+      "engines": {
+        "node": true,
+        "browsers": false
+      }
+    }
+  ],
+  "type": "commonjs",
+  "main": "index.cjs",
   "dependencies": {
-    "moment": "2.x.x"
+    "docpad-baseplugin": "^1.4.0",
+    "editions": "^3.16.0",
+    "moment": "^2.x.x"
   },
   "devDependencies": {
-    "coffee-script": "~1.4.0"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@bevry/update-contributors": "^1.15.0",
+    "coffeescript": "^2.5.1",
+    "docpad": "^6.83.1",
+    "docpad-plugintester": "^1.6.2",
+    "eslint": "^7.6.0",
+    "eslint-config-bevry": "^3.18.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "projectz": "^2.13.0",
+    "valid-directory": "^2.8.0"
   },
-  "scripts": {
-    "test": "node ./out/dateurls.test.js"
+  "eslintConfig": {
+    "extends": [
+      "bevry"
+    ]
   },
-  "main": "./out/dateurls.plugin.js",
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "babel": {
+    "env": {
+      "edition-node-14": {
+        "sourceType": "script",
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "14"
+              },
+              "modules": "commonjs"
+            }
+          ]
+        ],
+        "plugins": [
+          "@babel/proposal-object-rest-spread"
+        ]
+      },
+      "edition-node-10": {
+        "sourceType": "script",
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "10"
+              },
+              "modules": "commonjs"
+            }
+          ]
+        ],
+        "plugins": [
+          "@babel/proposal-object-rest-spread"
+        ]
+      }
+    }
+  },
   "readmeFilename": "readme.md",
-  "directories": {
-    "test": "test"
-  },
-  "license": "MIT"
+  "scripts": {
+    "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
+    "our:compile": "npm run our:compile:edition-node-10 && npm run our:compile:edition-node-14",
+    "our:compile:edition-node-10": "env BABEL_ENV=edition-node-10 babel --out-dir ./edition-node-10 ./source && echo '{\"type\": \"commonjs\"}' > edition-node-10/package.json",
+    "our:compile:edition-node-14": "env BABEL_ENV=edition-node-14 babel --out-dir ./edition-node-14 ./source && echo '{\"type\": \"commonjs\"}' > edition-node-14/package.json",
+    "our:deploy": "echo no need for this project",
+    "our:meta": "npm run our:meta:contributors && npm run our:meta:projectz",
+    "our:meta:contributors": "update-contributors",
+    "our:meta:projectz": "projectz compile",
+    "our:release": "npm run our:release:prepare && npm run our:release:check-changelog && npm run our:release:check-dirty && npm run our:release:tag && npm run our:release:push",
+    "our:release:check-changelog": "cat ./HISTORY.md | grep v$npm_package_version || (echo add a changelog entry for v$npm_package_version && exit -1)",
+    "our:release:check-dirty": "git diff --exit-code",
+    "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
+    "our:release:push": "git push origin master && git push origin --tags",
+    "our:release:tag": "export MESSAGE=$(cat ./HISTORY.md | sed -n \"/## v$npm_package_version/,/##/p\" | sed 's/## //' | awk 'NR>1{print buf}{buf = $0}') && test \"$MESSAGE\" || (echo 'proper changelog entry not found' && exit -1) && git tag v$npm_package_version -am \"$MESSAGE\"",
+    "our:setup": "npm run our:setup:install",
+    "our:setup:install": "npm install",
+    "our:test": "npm run our:verify && npm test",
+    "our:verify": "npm run our:verify:directory && npm run our:verify:eslint && npm run our:verify:prettier",
+    "our:verify:directory": "valid-directory",
+    "our:verify:eslint": "eslint --fix --ignore-pattern '**/*.d.ts' --ignore-pattern '**/vendor/' --ignore-pattern '**/node_modules/' --ext .mjs,.js,.jsx,.ts,.tsx ./source",
+    "our:verify:prettier": "prettier --write .",
+    "test": "docpad-plugintester"
+  }
 }
