@@ -1,6 +1,6 @@
 // @ts-nocheck
 'use strict'
-require('docpad-plugintester')
+module.exports = require('docpad-plugintester')
 	.test(
 		{
 			testerName: 'dateurls with file extension',
