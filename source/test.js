@@ -1,5 +1,6 @@
 // @ts-nocheck
 'use strict'
+
 module.exports = require('docpad-plugintester')
 	.test(
 		{
