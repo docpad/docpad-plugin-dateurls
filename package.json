@@ -110,7 +110,7 @@
   "main": "index.cjs",
   "dependencies": {
     "docpad-baseplugin": "^1.4.0",
-    "editions": "^3.16.0",
+    "editions": "^6.2.0",
     "moment": "^2.x.x"
   },
   "devDependencies": {
