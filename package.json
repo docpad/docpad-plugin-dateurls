@@ -124,7 +124,7 @@
     "docpad-plugintester": "^1.6.2",
     "eslint": "^7.6.0",
     "eslint-config-bevry": "^3.18.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
     "projectz": "^2.13.0",
